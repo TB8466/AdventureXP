@@ -1,4 +1,4 @@
-package adventurexp.Controllers;
+package adventurexp.controller;
 
 import org.springframework.stereotype.Controller;
 
