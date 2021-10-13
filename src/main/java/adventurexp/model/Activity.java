@@ -14,10 +14,13 @@ public class Activity {
 
 
     private String activityName;
-    private int ageReq;
+
+    /*private int ageReq;
     private double heightReq;
     private String equipment;
     private double time;
+
+     */
 
     public int getActivityId() {
         return activityId;
@@ -34,7 +37,7 @@ public class Activity {
     public void setActivityName(String activityName) {
         this.activityName = activityName;
     }
-
+/*
     public int getAgeReq() {
         return ageReq;
     }
@@ -66,10 +69,10 @@ public class Activity {
     public void setTime(double time) {
         this.time = time;
     }
-
+*/
     public Activity() {
     }
-
+/*
     public Activity(String activityName, int ageReq, double heightReq, String equipment, double time) {
         this.activityName = activityName;
         this.ageReq = ageReq;
@@ -77,5 +80,5 @@ public class Activity {
         this.equipment = equipment;
         this.time = time;
     }
-
+*/
 }
