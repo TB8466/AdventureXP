@@ -1,6 +1,6 @@
-package adventurexp.dao;
+package adventurexp.repositories;
 
-import adventurexp.entities.Employee;
+import adventurexp.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {

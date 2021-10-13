@@ -1,8 +1,8 @@
 package adventurexp.controller;
 
 
-import adventurexp.dao.EmployeeRepository;
-import adventurexp.entities.Employee;
+import adventurexp.repositories.EmployeeRepository;
+import adventurexp.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
