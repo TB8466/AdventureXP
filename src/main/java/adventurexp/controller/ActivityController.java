@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/activity")
@@ -23,6 +25,14 @@ public class ActivityController {
     activityRepository.save(activity);
 
     return new ResponseEntity<Activity>(activity, HttpStatus.CREATED);
+    }
+
+
+    @GetMapping("/get")
+    public List<Activity> displayActivities(){
+
+
+    return activityRepository.findAll();
     }
 
 
