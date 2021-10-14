@@ -14,15 +14,15 @@ public class Activity {
 
 
     private String activityName;
-    private String ageReq;
-    private String heightReq;
+    private int ageReq;
+    private double heightReq;
     private String equipment;
-    private String time;
+    private double time;
 
     public Activity() {
     }
 
-    public Activity(String activityName, String ageReq, String heightReq, String equipment, String time) {
+    public Activity(String activityName, int ageReq, double heightReq, String equipment, double time) {
         this.activityName = activityName;
         this.ageReq = ageReq;
         this.heightReq = heightReq;
@@ -46,19 +46,19 @@ public class Activity {
         this.activityName = activityName;
     }
 
-    public String getAgeReq() {
+    public int getAgeReq() {
         return ageReq;
     }
 
-    public void setAgeReq(String ageReq) {
+    public void setAgeReq(int ageReq) {
         this.ageReq = ageReq;
     }
 
-    public String getHeightReq() {
+    public double getHeightReq() {
         return heightReq;
     }
 
-    public void setHeightReq(String heightReq) {
+    public void setHeightReq(double heightReq) {
         this.heightReq = heightReq;
     }
 
@@ -70,11 +70,11 @@ public class Activity {
         this.equipment = equipment;
     }
 
-    public String getTime() {
+    public double getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(double time) {
         this.time = time;
     }
 
@@ -83,10 +83,10 @@ public class Activity {
         return "Activity{" +
                 "activityId=" + activityId +
                 ", activityName='" + activityName + '\'' +
-                ", ageReq='" + ageReq + '\'' +
-                ", heightReq='" + heightReq + '\'' +
+                ", ageReq=" + ageReq +
+                ", heightReq=" + heightReq +
                 ", equipment='" + equipment + '\'' +
-                ", time='" + time + '\'' +
+                ", time=" + time +
                 '}';
     }
 }

@@ -14,13 +14,15 @@ public class Employee {
 
     private String firstName;
     private String lastName;
+    private String employeeType;
 
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName) {
+    public Employee(String firstName, String lastName, String employeeType) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.employeeType=employeeType;
     }
 
     public int getEmployeeId() {
@@ -45,5 +47,23 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", employeeType='" + employeeType + '\'' +
+                '}';
     }
 }
