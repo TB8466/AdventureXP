@@ -14,13 +14,21 @@ public class Activity {
 
 
     private String activityName;
-
-    /*private int ageReq;
-    private double heightReq;
+    private String ageReq;
+    private String heightReq;
     private String equipment;
-    private double time;
+    private String time;
 
-     */
+    public Activity() {
+    }
+
+    public Activity(String activityName, String ageReq, String heightReq, String equipment, String time) {
+        this.activityName = activityName;
+        this.ageReq = ageReq;
+        this.heightReq = heightReq;
+        this.equipment = equipment;
+        this.time = time;
+    }
 
     public int getActivityId() {
         return activityId;
@@ -37,20 +45,20 @@ public class Activity {
     public void setActivityName(String activityName) {
         this.activityName = activityName;
     }
-/*
-    public int getAgeReq() {
+
+    public String getAgeReq() {
         return ageReq;
     }
 
-    public void setAgeReq(int ageReq) {
+    public void setAgeReq(String ageReq) {
         this.ageReq = ageReq;
     }
 
-    public double getHeightReq() {
+    public String getHeightReq() {
         return heightReq;
     }
 
-    public void setHeightReq(double heightReq) {
+    public void setHeightReq(String heightReq) {
         this.heightReq = heightReq;
     }
 
@@ -62,23 +70,23 @@ public class Activity {
         this.equipment = equipment;
     }
 
-    public double getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(double time) {
+    public void setTime(String time) {
         this.time = time;
     }
-*/
-    public Activity() {
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "activityId=" + activityId +
+                ", activityName='" + activityName + '\'' +
+                ", ageReq='" + ageReq + '\'' +
+                ", heightReq='" + heightReq + '\'' +
+                ", equipment='" + equipment + '\'' +
+                ", time='" + time + '\'' +
+                '}';
     }
-/*
-    public Activity(String activityName, int ageReq, double heightReq, String equipment, double time) {
-        this.activityName = activityName;
-        this.ageReq = ageReq;
-        this.heightReq = heightReq;
-        this.equipment = equipment;
-        this.time = time;
-    }
-*/
 }
