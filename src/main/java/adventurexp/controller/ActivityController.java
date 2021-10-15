@@ -35,8 +35,4 @@ public class ActivityController {
     return activityRepository.findAll();
     }
 
-
-
-
-
 }

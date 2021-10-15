@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Booking {
@@ -31,5 +32,18 @@ public class Booking {
     }
 
     public Booking() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Booking)) return false;
+        Booking booking = (Booking) o;
+        return bookingId == booking.bookingId && Objects.equals(bookingName, booking.bookingName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingId, bookingName);
     }
 }
