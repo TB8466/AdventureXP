@@ -27,9 +27,24 @@ public class BookingController {
     }
 
     //delete booking id
-    @GetMapping(path = "/delete/{id}")
+    /*@GetMapping(path = "/delete/{id}")
     public ResponseEntity<Booking> deleteBooking(@PathVariable int id){
         bookingRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }*/
+
+    @DeleteMapping("/booking/{id}")
+    public ResponseEntity<?> deleteBooking(@PathVariable(value = "id") Integer bookingId) throws BookingNotFoundException{
+        Booking booking = bookingRepository.findById(bookingId).orElseThrow(() -> new BookingNotFoundException(bookingId));
+
+        bookingRepository.delete(booking);
+        return ResponseEntity.ok().build();
+    }
+
+    private class BookingNotFoundException extends Exception {
+        private Integer booking_id;
+        public BookingNotFoundException(Integer booking_id){
+            super(String.format("Booking_id", booking_id, " blev ikke fundet i systemet"));
+        }
     }
 }
