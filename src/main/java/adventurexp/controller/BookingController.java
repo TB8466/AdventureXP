@@ -1,15 +1,13 @@
 package adventurexp.controller;
 
-import adventurexp.model.Activity;
 import adventurexp.model.Booking;
 import adventurexp.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -25,6 +23,12 @@ public class BookingController {
         bookingRepository.save(booking);
         return new ResponseEntity<Booking>(booking, HttpStatus.CREATED);
     }
+
+    @GetMapping("/get")
+    public List<Booking> displayActivities(){
+        return bookingRepository.findAll();
+    }
+
 
     //delete booking id
     /*@GetMapping(path = "/delete/{id}")
