@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.List;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 @CrossOrigin
@@ -17,18 +20,25 @@ public class BookingController {
     @Autowired
     BookingRepository bookingRepository;
 
+
+    @GetMapping("/get")
+    public List<Booking> displayBooking(){
+
+
+        return bookingRepository.findAll();
+    }
+
+
+
+
+
+
     @PostMapping(value="/save", consumes = "application/json")
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking){
 
         bookingRepository.save(booking);
         return new ResponseEntity<Booking>(booking, HttpStatus.CREATED);
     }
-
-    @GetMapping("/get")
-    public List<Booking> displayActivities(){
-        return bookingRepository.findAll();
-    }
-
 
     //delete booking id
     /*@GetMapping(path = "/delete/{id}")
@@ -37,7 +47,7 @@ public class BookingController {
         return new ResponseEntity<>(HttpStatus.OK);
     }*/
 
-    @DeleteMapping("/booking/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteBooking(@PathVariable(value = "id") Integer bookingId) throws BookingNotFoundException{
         Booking booking = bookingRepository.findById(bookingId).orElseThrow(() -> new BookingNotFoundException(bookingId));
 
