@@ -47,8 +47,8 @@ public class BookingController {
         return new ResponseEntity<>(HttpStatus.OK);
     }*/
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteBooking(@PathVariable(value = "id") Integer bookingId) throws BookingNotFoundException{
+    @DeleteMapping("/delete/{bookingId}")
+    public ResponseEntity<Booking> deleteBooking(@PathVariable int bookingId) throws BookingNotFoundException{
         Booking booking = bookingRepository.findById(bookingId).orElseThrow(() -> new BookingNotFoundException(bookingId));
 
         bookingRepository.delete(booking);
