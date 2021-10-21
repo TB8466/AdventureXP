@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
@@ -23,16 +24,10 @@ public class BookingController {
 
     @GetMapping("/get")
     public List<Booking> displayBooking(){
-
-
         return bookingRepository.findAll();
     }
 
-
-
-
-
-
+    
     @PostMapping(value="/save", consumes = "application/json")
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking){
 
@@ -40,12 +35,22 @@ public class BookingController {
         return new ResponseEntity<Booking>(booking, HttpStatus.CREATED);
     }
 
-    //delete booking id
-    /*@GetMapping(path = "/delete/{id}")
-    public ResponseEntity<Booking> deleteBooking(@PathVariable int id){
-        bookingRepository.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }*/
+    @PutMapping("/update/{bookingId}")
+    public ResponseEntity<Booking> updatebooking(@PathVariable int bookingId, @RequestBody Booking updatedBooking) {
+
+        Optional<Booking> optionalObj = bookingRepository.findById(bookingId);
+
+        Booking oldBooking  = optionalObj.get();
+
+        oldBooking.setGuestName(updatedBooking.getGuestName());
+        oldBooking.setGuestAmount(updatedBooking.getGuestAmount());
+        oldBooking.setBookedActivity(updatedBooking.getBookedActivity());
+        oldBooking.setDate(updatedBooking.getDate());
+
+        oldBooking = bookingRepository.save(oldBooking);
+
+        return new ResponseEntity<>(oldBooking, HttpStatus.OK);
+    }
 
     @DeleteMapping("/delete/{bookingId}")
     public ResponseEntity<Booking> deleteBooking(@PathVariable int bookingId) throws BookingNotFoundException{
