@@ -13,7 +13,7 @@ public class Shop {
 
     private String tshirtFarve;
     private int tshirt_antal;
-    private int tshirtSize;
+    private String tshirtSize;
     private String sodaSmag;
     private int soda_antal;
     private String pose_type;
@@ -23,7 +23,7 @@ public class Shop {
 
     }
 
-    public Shop(int shopID, String tshirtFarve, int tshirt_antal, int tshirtSize, String sodaSmag, int soda_antal, String pose_type, int pose_antal) {
+    public Shop(int shopID, String tshirtFarve, int tshirt_antal, String tshirtSize, String sodaSmag, int soda_antal, String pose_type, int pose_antal) {
         this.shopID = shopID;
         this.tshirtFarve = tshirtFarve;
         this.tshirt_antal = tshirt_antal;
@@ -58,11 +58,11 @@ public class Shop {
         this.tshirt_antal = tshirt_antal;
     }
 
-    public int getTshirtSize() {
+    public String getTshirtSize() {
         return tshirtSize;
     }
 
-    public void setTshirtSize(int tshirtSize) {
+    public void setTshirtSize(String tshirtSize) {
         this.tshirtSize = tshirtSize;
     }
 
