@@ -1,6 +1,7 @@
 package adventurexp.controller;
 
 
+import adventurexp.model.Booking;
 import adventurexp.repositories.ActivityRepository;
 import adventurexp.model.Activity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class ActivityController {
 
     activityRepository.save(activity);
 
-    return new ResponseEntity<Activity>(activity, HttpStatus.CREATED);
+    return new ResponseEntity<>(activity, HttpStatus.CREATED);
     }
 
 
@@ -55,36 +56,12 @@ activity3 = activityRepository.save(activity3);
 return new ResponseEntity<>(activity3, HttpStatus.OK);
     }
 
+    @DeleteMapping("/delete/{activityId}")
+    public ResponseEntity<Activity> deleteActivity(@PathVariable int activityId)  {
 
-    /*
-    @PutMapping("/employees/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
-                                                   @Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
-        Employee employee = employeeRepository.findById(employeeId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
+     activityRepository.deleteById(activityId);
 
-        employee.setEmailId(employeeDetails.getEmailId());
-        employee.setLastName(employeeDetails.getLastName());
-        employee.setFirstName(employeeDetails.getFirstName());
-        final Employee updatedEmployee = employeeRepository.save(employee);
-        return ResponseEntity.ok(updatedEmployee);
+
+        return ResponseEntity.ok().build();
     }
-
-    @PutMapping("/kommune/{kommuneKode}")
-    public ResponseEntity<Kommune> updateKommune(@PathVariable int kommuneKode, @RequestBody Kommune kommune) {
-        Optional<Kommune> kommuneData = kommuneRepository.findById(kommuneKode);
-        if (kommuneData.isPresent()) {
-            Kommune _kommune = kommuneData.get();
-            _kommune.setKommune(kommune.getKommune()); //her sættes kommunenavn
-            _kommune = kommuneRepository.save(_kommune);
-            return new ResponseEntity<>(_kommune, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-
-
-    */
-
 }
