@@ -19,6 +19,8 @@ public class Booking {
     private String bookedActivity;
     private LocalDateTime date;
 
+
+
     public Booking() {
     }
 
